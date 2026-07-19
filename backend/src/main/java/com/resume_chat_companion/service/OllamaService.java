@@ -49,7 +49,7 @@ public class OllamaService {
                 .bodyValue(request)
                 .retrieve()
                 .bodyToFlux(OllamaResponse.class)
-                .map(OllamaResponse::response);
+                .map(r -> r.response());
     }
 
     private record OllamaRequest(String model, String prompt, boolean stream) {}
